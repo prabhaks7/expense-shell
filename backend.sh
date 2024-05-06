@@ -54,6 +54,7 @@ curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expen
 VALIDATE $? "Downloading backend code"
 
 cd /app
+rm -rf /app/*  #if we run again, it will stop here bcaz we already have this app and already did unzip. So we use this command
 unzip /tmp/backend.zip &>>$LOGFILE
 VALIDATE $? "Extracted backend code"
 
@@ -80,4 +81,5 @@ VALIDATE $? "Schema Loading"
 
 systemctl restart backend &>>$LOGFILE
 VALIDATE $? "Restarting Backend"
+
 
