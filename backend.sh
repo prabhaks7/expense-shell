@@ -75,7 +75,7 @@ VALIDATE $? "Enabling backend"
 dnf install mysql -y &>>$LOGFILE
 VALIDATE $? "Installing MySQL Client"
 
-mysql -h ds.daw78s.online -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE  # in place of ip address = db.daw78s.online
+mysql -h 3.91.16.40 -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE  # in place of ip address = db.daw78s.online
 VALIDATE $? "Schema Loading"
 
 systemctl restart backend &>>$LOGFILE
