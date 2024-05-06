@@ -39,8 +39,8 @@ VALIDATE $? "Enabling MYSQL Server"
 systemctl start mysqld &>>$LOGFILE
 VALIDATE $? "Starting MYSQL Server"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOGFILE
-VALIDATE $? "Setting up Root Password"
+# mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOGFILE
+# VALIDATE $? "Setting up Root Password"
 
 #Below code will be useful for idempotent nature
 mysql -h db.daws78s.online -uroot -p${mysql_root_password} -e 'show databases;' &>>LOGFILE
