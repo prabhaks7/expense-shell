@@ -45,3 +45,17 @@ else
     echo -e "Expense user already created...$Y SKIPPING $N"
 fi
 
+mkdir -p /app     # here -p is used for if app exits,it will skip if not it will create folder
+VALIDATE $? "Creating app directory"
+
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+VALIDATE $? "Downloading backend code"
+
+cd /app
+unzip /tmp/backend.zip
+VALIDATE $? "Extracted backend code"
+
+npm install
+VALIDATE $? "Installing nodejs dependencies"
+
+
